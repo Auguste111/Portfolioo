@@ -1,0 +1,320 @@
+/* Professional Clean Portfolio Effects */
+
+/* Smooth scroll behavior */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Clean, Professional Typography */
+body {
+    font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+    color: #F0EDEE;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Subtle Header Effect */
+#header {
+    background: linear-gradient(135deg, #07393C 0%, #0A090C 100%);
+    backdrop-filter: blur(5px);
+    border-right: 2px solid #2C666E;
+    box-shadow: inset -1px 0 3px rgba(144, 221, 240, 0.1);
+    position: relative;
+    transition: box-shadow 0.3s ease;
+}
+
+#header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #2C666E, transparent);
+}
+
+/* Main content fade-in */
+#main {
+    animation: fadeIn 0.6s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Professional Tech Tags */
+.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+
+.tech-tag {
+    background: rgba(44, 102, 110, 0.15);
+    border: 1px solid rgba(144, 221, 240, 0.3);
+    color: #90DDF0;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.tech-tag:hover {
+    background: rgba(144, 221, 240, 0.1);
+    border-color: rgba(144, 221, 240, 0.6);
+    transform: translateY(-2px);
+}
+
+/* Section styling */
+section {
+    animation: slideIn 0.6s ease-out forwards;
+    opacity: 0;
+}
+
+section:nth-child(1) { animation-delay: 0.1s; }
+section:nth-child(2) { animation-delay: 0.2s; }
+section:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Button styling */
+.button {
+    transition: all 0.3s ease;
+    border-radius: 4px;
+    background: linear-gradient(135deg, #2C666E 0%, #07393C 100%);
+    border: 1px solid #90DDF0;
+    color: #F0EDEE;
+}
+
+.button:hover {
+    background: linear-gradient(135deg, #07393C 0%, #2C666E 100%);
+    box-shadow: 0 4px 12px rgba(144, 221, 240, 0.2);
+    transform: translateY(-2px);
+}
+
+.button.primary {
+    background: linear-gradient(135deg, #90DDF0 0%, #2C666E 100%);
+    color: #0A090C;
+}
+
+.button.primary:hover {
+    box-shadow: 0 4px 16px rgba(144, 221, 240, 0.4);
+}
+
+/* Work item cards */
+.work-item {
+    transition: all 0.3s ease;
+    border-radius: 4px;
+    background: rgba(44, 102, 110, 0.05);
+    border: 1px solid rgba(144, 221, 240, 0.1);
+    padding: 1.5rem;
+}
+
+.work-item:hover {
+    background: rgba(44, 102, 110, 0.1);
+    border-color: rgba(144, 221, 240, 0.3);
+    box-shadow: 0 8px 24px rgba(144, 221, 240, 0.15);
+    transform: translateY(-4px);
+}
+
+.work-item img {
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.work-item:hover img {
+    opacity: 0.9;
+}
+
+/* Header major title */
+header.major h2 {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 0.5rem;
+}
+
+header.major h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #90DDF0;
+    transition: width 0.3s ease;
+}
+
+section:hover header.major h2::after {
+    width: 100%;
+}
+
+/* Footer styling */
+#footer {
+    background: linear-gradient(135deg, #07393C 0%, #0A090C 100%);
+    border-top: 1px solid rgba(144, 221, 240, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+#footer:hover {
+    box-shadow: inset 0 1px 3px rgba(144, 221, 240, 0.1);
+}
+
+/* Icon animations */
+.icon {
+    transition: all 0.3s ease;
+    color: #90DDF0;
+}
+
+.icon:hover {
+    transform: scale(1.1);
+    color: #F0EDEE;
+}
+
+/* Links styling */
+a {
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    opacity: 0.8;
+}
+
+/* Subtle gradient on input focus */
+input:focus,
+textarea:focus {
+    box-shadow: 0 0 0 3px rgba(144, 221, 240, 0.1);
+}
+
+/* Skill bar animation */
+.skill-progress {
+    border-radius: 2px;
+    transition: width 0.6s ease-out;
+}
+
+/* Avatar image */
+.image.avatar {
+    transition: all 0.3s ease;
+    border-radius: 50%;
+    border: 2px solid rgba(144, 221, 240, 0.2);
+}
+
+.image.avatar:hover {
+    border-color: rgba(144, 221, 240, 0.6);
+    box-shadow: 0 0 20px rgba(144, 221, 240, 0.2);
+}
+
+/* Stats grid */
+.stats-grid {
+    transition: all 0.3s ease;
+}
+
+.stat-item {
+    transition: all 0.3s ease;
+    border-radius: 4px;
+    padding: 1rem;
+}
+
+.stat-item:hover {
+    transform: scale(1.05);
+    background: rgba(144, 221, 240, 0.05);
+}
+
+/* Contact methods */
+.contact-method {
+    transition: all 0.3s ease;
+    border-radius: 4px;
+    border: 1px solid rgba(144, 221, 240, 0.1);
+    padding: 1.5rem;
+    background: rgba(44, 102, 110, 0.05);
+}
+
+.contact-method:hover {
+    background: rgba(44, 102, 110, 0.1);
+    border-color: rgba(144, 221, 240, 0.3);
+    box-shadow: 0 8px 20px rgba(144, 221, 240, 0.1);
+    transform: translateY(-4px);
+}
+
+.contact-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.contact-method:hover .contact-icon {
+    transform: scale(1.1);
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .tech-tag {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.7rem;
+    }
+
+    .work-item {
+        padding: 1rem;
+    }
+}
+
+/* Status indicator pulse animation */
+.status-indicator {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+/* Form styling */
+form {
+    background: rgba(44, 102, 110, 0.05);
+    border: 1px solid rgba(144, 221, 240, 0.1);
+    border-radius: 4px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+}
+
+form:hover {
+    background: rgba(44, 102, 110, 0.08);
+    border-color: rgba(144, 221, 240, 0.2);
+}
+
+/* Subtle glow on focus elements */
+.button:focus,
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(144, 221, 240, 0.3);
+}
+
+/* Transitions for smooth interactions */
+* {
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}

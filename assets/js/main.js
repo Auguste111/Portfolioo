@@ -26,10 +26,8 @@
 
 		if (browser.mobile) {
 				$body.addClass('is-touch');
-				window.setTimeout(function() {
-					$window.scrollTop($window.scrollTop() + 1);
-				}, 0);
-
+				// Prevent scroll jump on mobile
+				settings.parallax = false;
 		}
 
 	// Footer.
@@ -48,19 +46,34 @@
 
 			if (settings.parallax) {
 
-				breakpoints.on('<=medium', function() {
+				var lastScroll = 0;
+				var rafId = null;
 
+				var updateParallax = function() {
+					var scrollTop = parseInt($window.scrollTop());
+					if (scrollTop !== lastScroll) {
+						$header.css('background-position', 'left ' + (-1 * (scrollTop / settings.parallaxFactor)) + 'px');
+						lastScroll = scrollTop;
+					}
+					rafId = null;
+				};
+
+				breakpoints.on('<=medium', function() {
 					$window.off('scroll.strata_parallax');
 					$header.css('background-position', '');
-
+					if (rafId) {
+						cancelAnimationFrame(rafId);
+						rafId = null;
+					}
 				});
 
 				breakpoints.on('>medium', function() {
-
 					$header.css('background-position', 'left 0px');
 
 					$window.on('scroll.strata_parallax', function() {
-						$header.css('background-position', 'left ' + (-1 * (parseInt($window.scrollTop()) / settings.parallaxFactor)) + 'px');
+						if (!rafId) {
+							rafId = requestAnimationFrame(updateParallax);
+						}
 					});
 
 				});
